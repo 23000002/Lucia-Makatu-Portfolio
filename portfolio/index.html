@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio of Lucia Makatu, Computer Science student at the University of Venda."
+    />
+    <title>Lucia Makatu | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ===================== NAVIGATION BAR ===================== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <img src="images/image-1.jpeg" alt="Lucia Makatu" class="nav-avatar" />
+        Lucia Makatu
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <!-- Mobile hamburger button -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===================== HERO / HOME SECTION ===================== -->
+    <section id="home" class="hero">
+      <!-- Decorative background shapes -->
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
+
+      <div class="hero-content">
+        <!-- Profile photo -->
+        <div class="avatar">
+          <img
+            src="images/image-1.jpeg"
+            alt="Lucia Makatu"
+            class="profile-photo"
+          />
+        </div>
+
+        <!-- Badge -->
+        <span class="badge">CS Student @ University of Venda</span>
+
+        <!-- Headline -->
+        <h1>Hi, I am <span class="highlight">Lucia Makatu</span></h1>
+
+        <!-- Animated typing tagline -->
+        <div class="typing-wrapper">
+          <span class="typing-text" id="typing"></span>
+          <span class="cursor">|</span>
+        </div>
+
+        <!-- Bio -->
+        <p class="hero-bio">
+          A passionate Computer Science student at the University of Venda,
+          Thohoyandou. I love building things with code and solving real-world
+          problems through technology.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ME SECTION ===================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Who I Am</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="about-layout">
+          <!-- Left: Bio + Academic card -->
+          <div class="about-left">
+            <div class="info-card">
+              <div class="card-icon">&#9998;</div>
+              <div>
+                <h3>Academic Background</h3>
+                <p>
+                  I am studying for a
+                  <strong>BSc in Computer Science</strong> at the
+                  <strong>University of Venda</strong> (Univen), Limpopo.
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="card-icon">&#9734;</div>
+              <div>
+                <h3>Career Goals</h3>
+                <p>
+                  My dream is to become a <strong>Software Developer</strong> or
+                  <strong>Systems Analyst</strong>. I want to use technology to
+                  uplift communities in rural South Africa and eventually pursue
+                  an Honours degree after graduating.
+                </p>
+              </div>
+            </div>
+
+            <!-- Quick fact pills -->
+            <div class="facts-row">
+              <span class="fact-pill">Thohoyandou, Limpopo</span>
+              <span class="fact-pill">University of Venda</span>
+              <span class="fact-pill">CS Student</span>
+              <span class="fact-pill">South Africa</span>
+            </div>
+          </div>
+
+          <!-- Right: Skills & Tools -->
+          <div class="about-right">
+            <h3 class="skills-heading">Skills &amp; Tools</h3>
+
+            <!-- Programming Languages -->
+            <p class="skill-category">Programming Languages</p>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML &amp; CSS</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Java</span>
+            </div>
+
+            <!-- Databases -->
+            <p class="skill-category">Databases</p>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+            </div>
+
+            <!-- Tools & Software -->
+            <p class="skill-category">Tools &amp; Software</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Git &amp; GitHub</span>
+              <span class="skill-tag">Microsoft Office</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS SECTION ===================== -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What I have Built</span>
+          <h2 class="section-title">My Projects</h2>
+          <div class="title-line"></div>
+          <p class="section-desc">
+            Projects I completed as part of my coursework and personal learning.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div
+              class="project-header"
+              style="background: linear-gradient(135deg, #2c6e49, #52b788)"
+            >
+              <div class="project-letter">01</div>
+            </div>
+            <div class="project-body">
+              <h3>Guess the Number Game</h3>
+              <p>
+                A simple console-based game where the player tries to guess a
+                randomly generated number. It provides feedback on whether the
+                guess is too high or too low.
+              </p>
+              <div class="project-footer">
+                <div class="tag-row">
+                  <span class="tag">C++</span>
+                </div>
+                <span class="project-type">School Assignment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div
+              class="project-header"
+              style="background: linear-gradient(135deg, #3a86ff, #4cc9f0)"
+            >
+              <div class="project-letter">02</div>
+            </div>
+            <div class="project-body">
+              <h3>Basic Calculator</h3>
+              <p>
+                A program that performs basic arithmetic operations like
+                addition, subtraction, multiplication, and division based on
+                user input.
+              </p>
+              <div class="project-footer">
+                <div class="tag-row">
+                  <span class="tag">Java</span>
+                </div>
+                <span class="project-type">School Assignment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div
+              class="project-header"
+              style="background: linear-gradient(135deg, #8338ec, #c77dff)"
+            >
+              <div class="project-letter">03</div>
+            </div>
+            <div class="project-body">
+              <h3>To-Do List</h3>
+              <p>
+                A simple static web page designed to list daily tasks and
+                assignments. This project helped me practice layout organization
+                using HTML and CSS.
+              </p>
+              <div class="project-footer">
+                <div class="tag-row">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                </div>
+                <span class="project-type">Personal Project</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Let's Connect</span>
+          <h2 class="section-title">Contact Me</h2>
+          <div class="title-line"></div>
+          <p class="section-desc">
+            I'm open to opportunities, internships, and collaborations. Reach
+            out anytime!
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact message -->
+          <div class="contact-message">
+            <h3>Get In Touch</h3>
+            <p>
+              Whether you have an opportunity, a question, or just want to say
+              hello, my inbox is always open. I will try my best to get back to
+              you as soon as possible!
+            </p>
+            <p style="margin-top: 15px">
+              I am currently looking for
+              <strong>internship opportunities</strong>
+              and open to connecting with professionals in the tech industry.
+            </p>
+          </div>
+
+          <!-- Contact links -->
+          <div class="contact-cards">
+            <a
+              href="mailto:23000002@mvula.univen.ac.za"
+              class="contact-link-card"
+            >
+              <span class="contact-icon-box">@</span>
+              <div>
+                <strong>Email</strong>
+                <span>23000002@mvula.univen.ac.za</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+
+            <a
+              href="https://github.com/23000002"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link-card"
+            >
+              <span class="contact-icon-box">GH</span>
+              <div>
+                <strong>GitHub</strong>
+                <span>github.com/23000002</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/lucia-makatu-0381ab403/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link-card"
+            >
+              <span class="contact-icon-box">in</span>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/lucia-makatu-0381ab403/</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <p class="footer-name">Lucia Makatu</p>
+      <p class="footer-sub">
+        BSc Computer Science &bull; University of Venda &bull; HCI Assignment
+      </p>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">&copy; 2026 Lucia Makatu</p>
+    </footer>
+
+    <!-- ===================== JAVASCRIPT (Optional) ===================== -->
+    <script>
+      /* --- Typing animation for tagline --- */
+      const phrases = [
+        "Future Software Developer",
+        "Computer Science Student",
+        "Problem Solver",
+        "Tech Enthusiast",
+      ];
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingEl = document.getElementById("typing");
+
+      function type() {
+        const current = phrases[phraseIndex];
+        if (isDeleting) {
+          typingEl.textContent = current.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingEl.textContent = current.substring(0, charIndex + 1);
+          charIndex++;
+        }
+        if (!isDeleting && charIndex === current.length) {
+          setTimeout(() => {
+            isDeleting = true;
+          }, 1800);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+        setTimeout(type, isDeleting ? 60 : 100);
+      }
+      type();
+
+      /* --- Mobile hamburger menu toggle --- */
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      });
+
+      /* --- Close mobile menu when a link is clicked --- */
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          hamburger.classList.remove("active");
+        });
+      });
+
+      /* --- Navbar shadow on scroll --- */
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

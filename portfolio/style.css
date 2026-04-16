@@ -1,0 +1,775 @@
+/* =====================================================
+   style.css — Upgraded Portfolio Stylesheet
+   Lucia Makatu | University of Venda | HCI Assignment
+   ===================================================== */
+
+/* --- Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =====================================================
+   CSS VARIABLES (Design Tokens)
+   ===================================================== */
+:root {
+  --green-dark:   #1b4332;
+  --green-main:   #2c6e49;
+  --green-mid:    #40916c;
+  --green-light:  #52b788;
+  --green-pale:   #d8f3dc;
+  --accent-blue:  #3a86ff;
+  --accent-orange:#ff6b35;
+  --bg-light:     #f8faf9;
+  --bg-alt:       #f0f7f4;
+  --text-dark:    #1a1a2e;
+  --text-mid:     #444444;
+  --text-light:   #777777;
+  --white:        #ffffff;
+  --shadow-soft:  0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.14);
+  --radius:       12px;
+  --transition:   0.3s ease;
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =====================================================
+   NAVIGATION BAR
+   ===================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 50px;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--green-pale);
+  transition: box-shadow var(--transition);
+}
+
+/* Shadow when user scrolls down — added via JS */
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Small circular photo in navbar */
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--green-pale);
+  flex-shrink: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--green-pale);
+  color: var(--green-main);
+}
+
+/* Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--green-dark);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+/* Animate hamburger to X when active */
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =====================================================
+   HERO / HOME SECTION
+   ===================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 30px;
+  background: linear-gradient(160deg, #f0fff4 0%, #e8f5e9 50%, #f0f7f4 100%);
+  overflow: hidden;
+}
+
+/* Decorative background blobs */
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.shape-1 {
+  width: 450px;
+  height: 450px;
+  background: var(--green-main);
+  top: -120px;
+  right: -120px;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent-blue);
+  bottom: -80px;
+  left: -80px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+/* --- Avatar Circle --- */
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-main), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px auto;
+  box-shadow: 0 8px 30px rgba(44, 110, 73, 0.35);
+  border: 4px solid var(--white);
+  animation: floatAvatar 3.5s ease-in-out infinite;
+}
+
+/* Gentle floating animation for avatar */
+@keyframes floatAvatar {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* Fills the circle without stretching */
+  object-position: top;     /* Show the face, not the bottom */
+  border-radius: 50%;
+}
+
+/* --- Badge --- */
+.badge {
+  display: inline-block;
+  background-color: var(--green-pale);
+  color: var(--green-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  letter-spacing: 0.3px;
+}
+
+/* --- Heading --- */
+.hero-content h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.highlight {
+  color: var(--green-main);
+}
+
+/* --- Typing animation --- */
+.typing-wrapper {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  margin-bottom: 22px;
+  min-height: 30px;
+}
+
+.cursor {
+  display: inline-block;
+  color: var(--green-main);
+  font-weight: 400;
+  animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Bio --- */
+.hero-bio {
+  max-width: 560px;
+  margin: 0 auto 35px auto;
+  color: var(--text-mid);
+  font-size: 0.97rem;
+}
+
+/* --- Buttons --- */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 32px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--green-main);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(44, 110, 73, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--green-dark);
+  box-shadow: 0 6px 20px rgba(44, 110, 73, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--green-main);
+  color: var(--green-main);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--green-main);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   SHARED SECTION STYLES
+   ===================================================== */
+.section {
+  padding: 90px 30px;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section header block */
+.section-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green-main);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+/* Decorative underline under title */
+.title-line {
+  width: 55px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green-main), var(--green-light));
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.section-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-top: 15px;
+}
+
+/* =====================================================
+   ABOUT ME SECTION
+   ===================================================== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Info cards (academic + goals) */
+.info-card {
+  display: flex;
+  gap: 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-soft);
+  border-left: 4px solid var(--green-light);
+  transition: box-shadow var(--transition);
+}
+
+.info-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.info-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+/* Fact pills */
+.facts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.fact-pill {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Skills section */
+.skills-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 22px;
+}
+
+/* Skill categories and tags */
+.skill-category {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--green-main);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.skill-tag {
+  background: var(--white);
+  border: 1.5px solid var(--green-pale);
+  color: var(--green-dark);
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.skill-tag:hover {
+  background: var(--green-pale);
+  border-color: var(--green-main);
+}
+
+/* =====================================================
+   PROJECTS SECTION
+   ===================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Coloured top band */
+.project-header {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Numbered label in project header */
+.project-letter {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-body {
+  padding: 22px;
+}
+
+.project-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.project-body p {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: var(--green-pale);
+  color: var(--green-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.project-type {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* =====================================================
+   CONTACT SECTION
+   ===================================================== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.contact-message {
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 35px;
+}
+
+.contact-message h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.contact-message p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.75;
+}
+
+/* Contact link cards */
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-soft);
+  border: 1.5px solid transparent;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.contact-link-card:hover {
+  border-color: var(--green-light);
+  box-shadow: var(--shadow-hover);
+  transform: translateX(4px);
+}
+
+.contact-icon-box {
+  width: 42px;
+  height: 42px;
+  background-color: var(--green-pale);
+  color: var(--green-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+.contact-link-card div {
+  flex: 1;
+}
+
+.contact-link-card strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.contact-link-card span {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  word-break: break-word;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  color: var(--green-main);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.contact-link-card:hover .arrow {
+  opacity: 1;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer {
+  background: var(--green-dark);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  padding: 35px 30px;
+}
+
+.footer-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.footer-sub {
+  font-size: 0.83rem;
+  opacity: 0.75;
+  margin-bottom: 18px;
+}
+
+.footer-divider {
+  width: 50px;
+  height: 2px;
+  background: var(--green-light);
+  border-radius: 2px;
+  margin: 0 auto 18px auto;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* =====================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* Navbar stacks on mobile */
+  .navbar {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+
+  /* Show hamburger, hide nav links by default */
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    padding: 10px 0 5px 0;
+  }
+
+  /* Show links when menu is open (toggled via JS) */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 10px 14px;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Hero text smaller on mobile */
+  .hero-content h1 { font-size: 1.9rem; }
+  .hero-bio { font-size: 0.9rem; }
+
+  /* Stack about layout vertically */
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* Stack projects to single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack contact layout */
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-message {
+    padding: 30px 24px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .section-title { font-size: 1.6rem; }
+
+  /* Smaller profile photo on mobile */
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* About photo full width on mobile */
+  .about-photo {
+    max-height: 260px;
+    width: 100%;
+  }
+
+  /* Unstick the photo on mobile */
+  .about-photo-wrap {
+    position: static;
+  }
+}
